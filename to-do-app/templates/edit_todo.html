@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Todo{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Edit Todo</h1>
+<form action="/edit/{{ todo.id }}" method="POST">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{ todo.title }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" name="description">{{ todo.description }}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="completed" class="form-label">Completed</label>
+        <select class="form-select" id="completed" name="completed">
+            <option value="false" {% if not todo.completed %}selected{% endif %}>Not Completed</option>
+            <option value="true" {% if todo.completed %}selected{% endif %}>Completed</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Update Todo</button>
+</form>
+{% endblock %}

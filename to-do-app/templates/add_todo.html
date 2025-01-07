@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Todo{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Add Todo</h1>
+<form action="/add" method="POST">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" name="description"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="completed" class="form-label">Completed</label>
+        <select class="form-select" id="completed" name="completed">
+            <option value="false" selected>Not Completed</option>
+            <option value="true">Completed</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Add Todo</button>
+</form>
+{% endblock %}
