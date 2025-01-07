@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
-import requests
+import requests, os
 
 app = Flask(__name__)
 
 # Base URL for the API
-API_BASE_URL = "https://virtserver.swaggerhub.com/4HM5AAD/Todo_App/1.0.0"
+API_BASE_URL = os.getenv("API_BASE_URL", "https://virtserver.swaggerhub.com/4HM5AAD/Todo_App/1.0.0")
 
 # Home route: Fetch all todos
 @app.route('/')
