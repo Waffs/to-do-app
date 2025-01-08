@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Todo{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Edit Todo</h1>
+    <form method="POST" class="form">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+                type="text"
+                class="form-control"
+                id="title"
+                name="title"
+                value="{{ todo.title }}"
+                placeholder="Enter todo title"
+                required
+            >
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea
+                class="form-control"
+                id="description"
+                name="description"
+                placeholder="Enter a brief description"
+                rows="3"
+            >{{ todo.description }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="due_date" class="form-label">Due Date</label>
+            <input
+                type="datetime-local"
+                class="form-control"
+                id="due_date"
+                name="due_date"
+                value="{{ todo.due_date | replace(' ', 'T') }}"
+            >
+        </div>
+        <div class="mb-3">
+            <label for="priority" class="form-label">Priority Level</label>
+            <select class="form-select" id="priority" name="priority">
+                <option value="Low" {% if todo.priority == "Low" %}selected{% endif %}>Low</option>
+                <option value="Medium" {% if todo.priority == "Medium" %}selected{% endif %}>Medium</option>
+                <option value="High" {% if todo.priority == "High" %}selected{% endif %}>High</option>
+            </select>
+        </div>
+        <div class="d-grid">
+            <button type="submit" class="btn btn-success">Save Changes</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
