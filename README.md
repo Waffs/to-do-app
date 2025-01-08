@@ -32,29 +32,27 @@ A feature-rich Todo App built with Flask and SQLAlchemy, allowing users to manag
 - Pip (Python Package Manager)
 
 ### 1. Clone the Repository
-```bash
+
 git clone https://github.com/your-username/todo-app.git
 cd todo-app
+
 2. Create a Virtual Environment
-bash
-Copy code
+
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
+
 3. Install Dependencies
-bash
-Copy code
+
 pip install -r requirements.txt
+
 4. Set Up the Database
 To initialize the database, run:
 
-bash
-Copy code
 flask db init
 flask db migrate -m "Initial migration"
 flask db upgrade
+
 5. Run the Application
-bash
-Copy code
 flask run
 The app will be available at http://127.0.0.1:5000/.
 
@@ -75,14 +73,15 @@ SQLALCHEMY_DATABASE_URI - Database connection URI
 FLASK_ENV - Set to development for debugging
 Add these variables in a .env file or configure them in your deployment environment.
 
-Deployment
-Vercel Deployment
+### Deployment
+#### Vercel Deployment
 Push the project to a GitHub repository.
 Connect your repository to Vercel.
 Configure the following environment variables in Vercel:
 SQLALCHEMY_DATABASE_URI
 Deploy your app and access it via the Vercel-provided URL.
-Future Improvements
+
+### Future Improvements
 Add tags or categories for better task organization.
 Include recurring tasks functionality.
 Add collaborative features (shared tasks).
