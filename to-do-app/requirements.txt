@@ -1,7 +1,0 @@
-flask
-flask-sqlalchemy
-flask-restful
-gunicorn
-python-dotenv
-requests
-
